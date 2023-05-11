@@ -17,7 +17,7 @@ function playRPS(pc, cc) {
   }
 }
 
-function game() {
+function winCounter() {
   let win = 0;
   let lose = 0;
   for (let i = 0; i < 5; i++) {
@@ -40,9 +40,13 @@ function game() {
         break;
     }
   }
-  if (win > lose) {
+  return [win, lose];
+}
+
+function game(arr) {
+  if (arr[0] > arr[1]) {
     return "ULTIMATE WINNER!"
-  } else if (lose > win) {
+  } else if (arr[1] > arr[0]) {
     return "BIG LOSER!"
   } else {
     return "T I E"
@@ -50,4 +54,4 @@ function game() {
 }
 
 
-console.log(game());
+console.log(game(winCounter()));
